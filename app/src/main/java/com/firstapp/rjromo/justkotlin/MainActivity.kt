@@ -17,23 +17,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
+    var quantity: Int = 0
 
     fun increment(view: View) {
-        var quantity:Int = 3
+        quantity++
         display(quantity)
+        displayPrice( quantity * 5)
     }
 
     fun decrement(view: View) {
-        var quantity:Int = 1
+        quantity--
         display(quantity)
+        displayPrice( quantity * 5)
     }
 
     /**
      * This method is called when the order button is clicked.
      */
     fun submitOrder(view: View) {
-        var quantity:Int = 2
         display(quantity)
         displayPrice( quantity * 5)
     }
