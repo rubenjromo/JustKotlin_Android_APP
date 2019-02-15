@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
      * This method is called when the order button is clicked.
      */
     fun submitOrder(view: View) {
-        display(1)
-        displayPrice(1 * 5)
+        var numberofCoffees:Int = 2
+        display(numberofCoffees)
+        displayPrice(numberofCoffees * 5)
     }
 
     /**
