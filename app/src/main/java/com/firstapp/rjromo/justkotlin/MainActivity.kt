@@ -1,11 +1,13 @@
 package com.firstapp.rjromo.justkotlin
 
 //import android.R
+
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import java.text.NumberFormat
+
 
 
 /**
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
     var quantity: Int = 0
 
@@ -55,5 +58,7 @@ class MainActivity : AppCompatActivity() {
         val priceTextView = findViewById<View>(R.id.price_text_view) as TextView
         priceTextView.text = NumberFormat.getCurrencyInstance().format(number)
     }
+
+
 
 }
