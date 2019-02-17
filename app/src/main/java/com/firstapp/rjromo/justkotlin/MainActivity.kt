@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
      * This method is called when the order button is clicked.
      */
     fun submitOrder(view: View) {
-        val message:String = "Thank you"
+        var price:Int = quantity * 5
+        val message:String = "Total: ${price} \nThank you"
         displayMessage(message)
     }
 
