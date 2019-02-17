@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
     }
     var quantity: Int = 0
 
@@ -38,8 +39,8 @@ class MainActivity : AppCompatActivity() {
      * This method is called when the order button is clicked.
      */
     fun submitOrder(view: View) {
-        display(quantity)
-        displayPrice( quantity * 5)
+        val message:String = "Thank you"
+        displayMessage(message)
     }
 
 
@@ -57,6 +58,13 @@ class MainActivity : AppCompatActivity() {
     private fun displayPrice(number: Int) {
         val priceTextView = findViewById<View>(R.id.price_text_view) as TextView
         priceTextView.text = NumberFormat.getCurrencyInstance().format(number)
+    }
+    /**
+     * This method displays a message on the screen.
+     */
+    private fun displayMessage(message: String){
+        val priceTextView = findViewById<> (R.id.price_text_view) as TextView
+        priceTextView.text = message
     }
 
 
