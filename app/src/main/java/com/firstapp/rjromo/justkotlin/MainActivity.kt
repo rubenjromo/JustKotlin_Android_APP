@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import java.text.NumberFormat
-
 
 
 /**
@@ -19,28 +21,40 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        lateinit var mAdView : AdView
+
+
+        MobileAds.initialize(this, "ca-app-pub-4597919722020460~5704079985")
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
+
 
     }
+
     var quantity: Int = 0
 
     fun increment(view: View) {
         quantity++
         display(quantity)
-        displayPrice( quantity * 5)
+        displayPrice(quantity * 5)
     }
 
     fun decrement(view: View) {
         quantity--
         display(quantity)
-        displayPrice( quantity * 5)
+        displayPrice(quantity * 5)
     }
 
     /**
      * This method is called when the order button is clicked.
      */
     fun submitOrder(view: View) {
-        var price:Int = quantity * 5
-        val message:String = "Total: ${price} \nThank you"
+        var price: Int = quantity * 5
+        val message: String = "Total: ${NumberFormat.getCurrencyInstance().format(price)} \nThank you"
         displayMessage(message)
     }
 
@@ -60,14 +74,14 @@ class MainActivity : AppCompatActivity() {
         val priceTextView = findViewById<View>(R.id.price_text_view) as TextView
         priceTextView.text = NumberFormat.getCurrencyInstance().format(number)
     }
+
     /**
      * This method displays a message on the screen.
      */
-    private fun displayMessage(message: String){
-        val priceTextView = findViewById<> (R.id.price_text_view) as TextView
+    private fun displayMessage(message: String) {
+        val priceTextView = findViewById<View>(R.id.price_text_view) as TextView
         priceTextView.text = message
     }
-
 
 
 }
