@@ -1,7 +1,5 @@
 package com.firstapp.rjromo.justkotlin
 
-//import android.R
-
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -37,24 +35,28 @@ class MainActivity : AppCompatActivity() {
 
     var quantity: Int = 0
 
+    private fun calculatePrice(view: View):Int{
+        var price = quantity * 5
+        return price
+    }
+
     fun increment(view: View) {
         quantity++
         display(quantity)
-        displayPrice(quantity * 5)
+        displayPrice(calculatePrice())
     }
 
     fun decrement(view: View) {
         quantity--
         display(quantity)
-        displayPrice(quantity * 5)
+        displayPrice(calculatePrice())
     }
 
     /**
      * This method is called when the order button is clicked.
      */
     fun submitOrder(view: View) {
-        var price: Int = quantity * 5
-        val message: String = "Total: ${NumberFormat.getCurrencyInstance().format(price)} \nThank you"
+        val message: String = "Total: ${NumberFormat.getCurrencyInstance().format(calculatePrice())} \nThank you"
         displayMessage(message)
     }
 
