@@ -28,9 +28,6 @@ class MainActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
-
-
-
     }
 
     var quantity: Int = 0
@@ -75,8 +72,8 @@ class MainActivity : AppCompatActivity() {
      * This method displays a message on the screen.
      */
     private fun displayMessage(message: String) {
-        val priceTextView = findViewById<View>(R.id.price_text_view) as TextView
-        priceTextView.text = message
+        val orderSummaryTextView = findViewById<View>(R.id.order_summary_text_view) as TextView
+        orderSummaryTextView.text = message
     }
 
     fun createOrderSummary():String {
